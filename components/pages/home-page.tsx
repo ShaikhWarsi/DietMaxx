@@ -18,6 +18,15 @@ import { FormData, RecommendationsData } from "@/types/form"
 import { useForm } from "@/hooks/use-form"
 import { validateFormData } from "@/lib/validation"
 
+const stepTitles = [
+  "Basic Information",
+  "Workout Habits",
+  "Daily Meals",
+  "Food Habits",
+  "Other Habits",
+  "Medical History",
+];
+
 export function HomePage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [showResults, setShowResults] = useState(false);
@@ -177,8 +186,8 @@ export function HomePage() {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto space-y-6 flex flex-col items-center justify-center h-screen">
-        <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm w-full max-w-md">
+      <div className="space-y-6 flex flex-col items-center justify-center h-screen">
+        <Card className="shadow-lg border-0 w-full max-w-md">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold">Analyzing Your Diet...</CardTitle>
             <CardDescription>Please wait while we generate your personalized recommendations.</CardDescription>
@@ -256,12 +265,12 @@ export function HomePage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+      <div className="p-6 space-y-6 mx-auto">
+        <Card className="shadow-lg border-0 w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-center">DietMaxx Assessment</CardTitle>
-          <CardDescription className="text-center">Step {currentStep} of {totalSteps}</CardDescription>
-          <Progress value={(currentStep / totalSteps) * 100} className="w-full mt-4" />
+          <CardTitle className="text-2xl md:text-3xl font-bold text-center">DietMaxx Assessment</CardTitle>
+          <CardDescription className="text-center">Step {currentStep} of {totalSteps}: {stepTitles[currentStep - 1]}</CardDescription>
+          <Progress value={(currentStep / totalSteps) * 100} className="w-full mt-4" valueLabel={`${Math.round((currentStep / totalSteps) * 100)}% Complete`} />
         </CardHeader>
         <CardContent>
           {error && (
@@ -285,7 +294,7 @@ export function HomePage() {
               <Button
                 onClick={handleSubmit}
                 disabled={loading}
-                className={`ml-auto flex items-center gap-2 h-12 px-6 ${loading ? 'bg-gray-400' : 'bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700'}`}
+                className={`ml-auto flex items-center gap-2 h-12 px-6 ${loading ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'}`}
               >
                 {loading ? (
                   <span className="flex items-center">

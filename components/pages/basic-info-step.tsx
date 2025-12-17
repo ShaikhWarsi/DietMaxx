@@ -14,21 +14,21 @@ interface BasicInfoStepProps {
 
 export function BasicInfoStep({ formData, handleInputChange, errors = {} }: BasicInfoStepProps) {
   return (
-    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg border-0 w-full">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl text-gray-800">Basic Information</CardTitle>
-        <CardDescription className="text-gray-600">Let's start with some basic details about you</CardDescription>
+        <CardTitle className="text-2xl">Basic Information</CardTitle>
+        <CardDescription className="">Let's start with some basic details about you</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-6 w-full">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-gray-700">
+          <Label htmlFor="name">
             Name
           </Label>
           <Input
             id="name"
             value={formData.name || ''}
             onChange={(e) => handleInputChange(e, "name")}
-            className={`h-12 border-gray-200 focus:border-blue-400 focus:ring-blue-400 ${errors.name ? 'border-red-500' : ''}`}
+            className={`${errors.name ? 'border-red-500' : ''}`}
             placeholder="Enter your name"
           />
           {errors.name && (
@@ -47,7 +47,7 @@ export function BasicInfoStep({ formData, handleInputChange, errors = {} }: Basi
             type="number"
             value={formData.age || ''}
             onChange={(e) => handleInputChange(e, "age")}
-            className={`h-12 border-gray-200 focus:border-blue-400 focus:ring-blue-400 ${errors.age ? 'border-red-500' : ''}`}
+            className={`${errors.age ? 'border-red-500' : ''}`}
             placeholder="Enter your age"
           />
           {errors.age && (
@@ -64,12 +64,6 @@ export function BasicInfoStep({ formData, handleInputChange, errors = {} }: Basi
             onValueChange={(value) => handleInputChange(value, "gender")}
             className="flex gap-6"
           >
-          {errors.gender && (
-            <div className="flex items-center mt-1 text-red-500 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>{errors.gender}</span>
-            </div>
-          )}
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="male" id="male" />
               <Label htmlFor="male">Male</Label>
@@ -83,9 +77,15 @@ export function BasicInfoStep({ formData, handleInputChange, errors = {} }: Basi
               <Label htmlFor="other">Other</Label>
             </div>
           </RadioGroup>
+          {errors.gender && (
+            <div className="flex items-center mt-1 text-red-500 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>{errors.gender}</span>
+            </div>
+          )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="weight" className="text-gray-700">
+          <Label htmlFor="weight">
             Current Weight (kg)
           </Label>
           <Input
@@ -93,7 +93,7 @@ export function BasicInfoStep({ formData, handleInputChange, errors = {} }: Basi
             type="number"
             value={formData.weight || ''}
             onChange={(e) => handleInputChange(e, "weight")}
-            className={`h-12 border-gray-200 focus:border-blue-400 focus:ring-blue-400 ${errors.weight ? 'border-red-500' : ''}`}
+            className={`${errors.weight ? 'border-red-500' : ''}`}
             placeholder="Enter weight in kg"
           />
           {errors.weight && (

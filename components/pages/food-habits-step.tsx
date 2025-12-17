@@ -13,10 +13,10 @@ interface FoodHabitsStepProps {
 
 export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: FoodHabitsStepProps) {
   return (
-    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg border-0">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl text-gray-800">Food Habits</CardTitle>
-        <CardDescription className="text-gray-600">Let's understand your eating habits better</CardDescription>
+        <CardTitle className="text-2xl">Food Habits</CardTitle>
+        <CardDescription className="">Let's understand your eating habits better</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-3">
@@ -26,12 +26,6 @@ export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: Foo
             onValueChange={(value) => handleInputChange(value, "fast_food")}
             className="flex gap-6"
           >
-          {errors.fast_food && (
-            <div className="flex items-center mt-1 text-red-500 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>{errors.fast_food}</span>
-            </div>
-          )}
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="yes" id="fastfood-yes" />
               <Label htmlFor="fastfood-yes">Yes</Label>
@@ -41,14 +35,19 @@ export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: Foo
               <Label htmlFor="fastfood-no">No</Label>
             </div>
           </RadioGroup>
+          {errors.fast_food && (
+            <div className="flex items-center mt-1 text-red-500 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>{errors.fast_food}</span>
+            </div>
+          )}
           {formData.fast_food === "yes" && (
             <div className="mt-3">
               <Textarea
                 id="fast_food_type"
                 value={formData.fast_food_type || ''}
                 onChange={(e) => handleInputChange(e, "fast_food_type")}
-                className={`min-h-[60px] border-gray-200 focus:border-blue-400 focus:ring-blue-400 ${errors.fast_food_type ? 'border-red-500' : ''}`}
-                placeholder="What types of fast food do you usually eat?"
+                className={`min-h-[60px] border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.fast_food_type ? 'border-red-500' : ''}`}                placeholder="What types of fast food do you usually eat?"
               />
               {errors.fast_food_type && (
                 <div className="flex items-center mt-1 text-red-500 text-sm">
@@ -67,12 +66,6 @@ export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: Foo
             onValueChange={(value) => handleInputChange(value, "green_tea")}
             className="flex gap-6"
           >
-          {errors.green_tea && (
-            <div className="flex items-center mt-1 text-red-500 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>{errors.green_tea}</span>
-            </div>
-          )}
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="yes" id="green-tea-yes" />
               <Label htmlFor="green-tea-yes">Yes</Label>
@@ -82,21 +75,21 @@ export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: Foo
               <Label htmlFor="green-tea-no">No</Label>
             </div>
           </RadioGroup>
+          {errors.green_tea && (
+            <div className="flex items-center mt-1 text-red-500 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>{errors.green_tea}</span>
+            </div>
+          )}
         </div>
 
         <div className="space-y-3">
-          <Label className="text-gray-700">Do you consume nuts?</Label>
+          <Label>Do you consume nuts?</Label>
           <RadioGroup
             value={formData.nuts || ''}
             onValueChange={(value) => handleInputChange(value, "nuts")}
             className="flex gap-6"
           >
-          {errors.nuts && (
-            <div className="flex items-center mt-1 text-red-500 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>{errors.nuts}</span>
-            </div>
-          )}
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="yes" id="nuts-yes" />
               <Label htmlFor="nuts-yes">Yes</Label>
@@ -106,6 +99,12 @@ export function FoodHabitsStep({ formData, handleInputChange, errors = {} }: Foo
               <Label htmlFor="nuts-no">No</Label>
             </div>
           </RadioGroup>
+          {errors.nuts && (
+            <div className="flex items-center mt-1 text-red-500 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>{errors.nuts}</span>
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

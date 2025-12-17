@@ -17,9 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          forcedTheme="light"
+          defaultTheme="system"
+          enableSystem={true}
           disableTransitionOnChange
         >
           <ClientLayout>{children}</ClientLayout>

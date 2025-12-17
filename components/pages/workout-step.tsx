@@ -13,25 +13,19 @@ interface WorkoutStepProps {
 
 export function WorkoutStep({ formData, handleInputChange, errors = {} }: WorkoutStepProps) {
   return (
-    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg border-0">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl text-gray-800">Workout Information</CardTitle>
-        <CardDescription className="text-gray-600">Tell us about your workout routine</CardDescription>
+        <CardTitle className="text-2xl">Workout Information</CardTitle>
+        <CardDescription className="">Tell us about your workout routine</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-3">
-          <Label className="text-gray-700">Do you workout?</Label>
+          <Label>Do you workout?</Label>
           <RadioGroup
             value={formData.workout || ''}
             onValueChange={(value) => handleInputChange(value, "workout")}
             className="flex gap-6"
           >
-          {errors.workout && (
-            <div className="flex items-center mt-1 text-red-500 text-sm">
-              <AlertCircle className="h-4 w-4 mr-1" />
-              <span>{errors.workout}</span>
-            </div>
-          )}
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="yes" id="workout-yes" />
               <Label htmlFor="workout-yes">Yes</Label>
@@ -41,6 +35,12 @@ export function WorkoutStep({ formData, handleInputChange, errors = {} }: Workou
               <Label htmlFor="workout-no">No</Label>
             </div>
           </RadioGroup>
+          {errors.workout && (
+            <div className="flex items-center mt-1 text-red-500 text-sm">
+              <AlertCircle className="h-4 w-4 mr-1" />
+              <span>{errors.workout}</span>
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

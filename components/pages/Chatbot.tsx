@@ -80,7 +80,7 @@ export function Chatbot({ formData, onClose }: ChatbotProps) {
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
               )}
-              <div className={`max-w-[70%] p-3 rounded-lg ${msg.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>
+              <div className={`max-w-[70%] p-3 rounded-lg ${msg.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
                 {msg.parts}
               </div>
               {msg.role === 'user' && (
@@ -97,7 +97,7 @@ export function Chatbot({ formData, onClose }: ChatbotProps) {
                 <AvatarImage src="/placeholder-logo.svg" alt="AI" />
                 <AvatarFallback>AI</AvatarFallback>
               </Avatar>
-              <div className="max-w-[70%] p-3 rounded-lg bg-gray-200 text-gray-800 animate-pulse">
+              <div className="max-w-[70%] p-3 rounded-lg bg-muted text-muted-foreground animate-pulse">
                 Typing...
               </div>
             </div>

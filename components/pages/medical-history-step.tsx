@@ -20,10 +20,10 @@ export function MedicalHistoryStep({
   errors,
 }: MedicalHistoryStepProps) {
   return (
-    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg border-0">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-bold">Medical History & Lifestyle</CardTitle>
-        <CardDescription className="text-gray-700">Please provide details about your medical history and lifestyle habits.</CardDescription>
+        <CardDescription className="">Please provide details about your medical history and lifestyle habits.</CardDescription>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
         <div className="space-y-2">
@@ -34,8 +34,7 @@ export function MedicalHistoryStep({
             placeholder="List any medical conditions..."
             value={formData.medical_conditions || ''}
             onChange={(e) => handleInputChange(e, 'medical_conditions')}
-            className={errors.medical_conditions ? 'border-red-500' : ''}
-          />
+            className={`border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.medical_conditions ? 'border-red-500' : ''}`}          />
           {errors.medical_conditions && <p className="text-red-500 text-sm">{errors.medical_conditions}</p>}
         </div>
 
@@ -47,8 +46,7 @@ export function MedicalHistoryStep({
             placeholder="List any medications..."
             value={formData.medications || ''}
             onChange={(e) => handleInputChange(e, 'medications')}
-            className={errors.medications ? 'border-red-500' : ''}
-          />
+            className={`border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.medications ? 'border-red-500' : ''}`}          />
           {errors.medications && <p className="text-red-500 text-sm">{errors.medications}</p>}
         </div>
 
@@ -101,7 +99,7 @@ export function MedicalHistoryStep({
             placeholder="e.g., 7"
             value={formData.stress_level || ''}
             onChange={(e) => handleInputChange(e, 'stress_level')}
-            className={errors.stress_level ? 'border-red-500' : ''}
+            className={`border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${errors.stress_level ? 'border-red-500' : ''}`}
           />
           {errors.stress_level && <p className="text-red-500 text-sm">{errors.stress_level}</p>}
         </div>

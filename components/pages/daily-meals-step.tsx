@@ -13,10 +13,10 @@ interface DailyMealsStepProps {
 
 export function DailyMealsStep({ formData, handleInputChange }: DailyMealsStepProps) {
   return (
-    <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+    <Card className="shadow-lg border-0">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl text-gray-800">Daily Meals</CardTitle>
-        <CardDescription className="text-gray-600">Describe what you typically eat for each meal</CardDescription>
+        <CardTitle className="text-2xl">Daily Meals</CardTitle>
+        <CardDescription className="">Describe what you typically eat for each meal</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
@@ -27,19 +27,19 @@ export function DailyMealsStep({ formData, handleInputChange }: DailyMealsStepPr
             id="breakfast"
             value={formData.breakfast}
             onChange={(e) => handleInputChange(e, "breakfast")}
-            className="min-h-[80px] border-gray-200 focus:border-blue-400 focus:ring-blue-400"
+            className="min-h-[80px] border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             placeholder="Describe your typical breakfast..."
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="lunch" className="text-gray-700">
+          <Label htmlFor="lunch">
             Lunch
           </Label>
           <Textarea
             id="lunch"
             value={formData.lunch}
             onChange={(e) => handleInputChange(e, "lunch")}
-            className="min-h-[80px] border-gray-200 focus:border-blue-400 focus:ring-blue-400"
+            className="min-h-[80px] border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             placeholder="Describe your typical lunch..."
           />
         </div>
@@ -51,7 +51,7 @@ export function DailyMealsStep({ formData, handleInputChange }: DailyMealsStepPr
             id="dinner"
             value={formData.dinner}
             onChange={(e) => handleInputChange(e, "dinner")}
-            className="min-h-[80px] border-gray-200 focus:border-blue-400 focus:ring-blue-400"
+            className="min-h-[80px] border border-input bg-background ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             placeholder="Describe your typical dinner..."
           />
         </div>
